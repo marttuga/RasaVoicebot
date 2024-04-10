@@ -1,0 +1,1750 @@
+version: "3.1"
+stories:
+- story: have trouble -no
+  steps:
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+
+- story: have trouble -yes
+  steps:
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  
+- story: get support -no
+  steps:
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+
+- story: anything else -no
+  steps:
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: anything else -yes
+  steps:
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+
+
+
+
+- story: powerTilesPro 
+  steps:
+  - intent: powerTilesPro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+
+- story: powerRobots 
+  steps:
+  - intent: powerRobots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+
+- story: powerScorecards 
+  steps:
+  - intent: powerScorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+
+- story: powerPortal 
+  steps:
+  - intent: powerPortal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+
+- story: powerDataPortal 
+  steps:
+  - intent: powerDataPortal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+
+- story: powerSmartPivot 
+  steps:
+  - intent: powerSmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+
+- story: smartDocumentor 
+  steps:
+  - intent: smartDocumentor
+  - action: utter_smartDocumentor
+  - action: utter_have_trouble
+
+
+
+
+
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+      - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Marta
+  - slot_was_set:
+      - name: Marta
+  - action: form_support
+  - slot_was_set:
+      - name: Marta
+  - slot_was_set:
+      - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913766572'
+  - slot_was_set:
+      - phoneNumber: '913766572'
+  - action: form_support
+  - slot_was_set:
+      - phoneNumber: '913766572'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - issue: the PowerBi Robots is too slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the PowerBi Robots is too slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope
+  - action: utter_explain_Devscope
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_2
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+      - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Pedro
+  - slot_was_set:
+      - name: Pedro
+  - action: form_support
+  - slot_was_set:
+      - name: Pedro
+  - slot_was_set:
+      - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912346738'
+  - slot_was_set:
+      - phoneNumber: '912346738'
+  - action: form_support
+  - slot_was_set:
+      - phoneNumber: '912346738'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - issue: the PowerBi Scorecards is too slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the PowerBi Scorecards is too slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: interactive_story_3
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Maria
+  - slot_was_set:
+    - name: Maria
+  - action: form_support
+  - slot_was_set:
+    - name: Maria
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '932145676'
+  - slot_was_set:
+    - phoneNumber: '932145676'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '932145676'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_4
+  steps:
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_5
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Rui
+  - slot_was_set:
+    - name: Rui
+  - action: form_support
+  - slot_was_set:
+    - name: Rui
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912345676'
+  - slot_was_set:
+    - phoneNumber: '912345676'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '912345676'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Portal
+  - slot_was_set:
+    - projects: PowerBi Portal
+  - slot_was_set:
+    - issue: the power portal is not working
+  - action: form_support
+  - slot_was_set:
+    - issue: the power portal is not working
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_6
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Mariana
+  - slot_was_set:
+    - name: Mariana
+  - action: form_support
+  - slot_was_set:
+    - name: Mariana
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912367897'
+  - slot_was_set:
+    - phoneNumber: '912367897'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '912367897'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - issue: the power tiles is taking too long to restart
+  - slot_was_set:
+    - issue: the power tiles is taking too long to restart
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_7
+  steps:
+  - intent: powerTilesPro
+    entities:
+    - projects: PowerBi Tiles Pro
+  - slot_was_set:
+    - projects: PowerBi Tiles Pro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_8
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: power
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - intent: powerSmartPivot
+    entities:
+    - projects: power smart pivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_9
+  steps:
+  - intent: powerRobots
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_10
+  steps:
+  - intent: powerPortal
+    entities:
+    - projects: PowerBi Portal
+  - slot_was_set:
+    - projects: PowerBi Portal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: interactive_story_11
+  steps:
+  - intent: powerPortal
+    entities:
+    - projects: PowerBi Portal
+  - slot_was_set:
+    - projects: PowerBi Portal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_12
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_13
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_14
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_15
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_16
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: smart pivot
+  - slot_was_set:
+    - projects: smart pivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_17
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_18
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_19
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: power
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_20
+  steps:
+  - intent: possibilities
+  - action: utter_possibilities
+  - intent: explain_Devscope
+  - action: utter_explain_Devscope
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_21
+  steps:
+  - intent: smartDocumentor
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - action: utter_smartDocumentor
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_22
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_23
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Mariana
+  - slot_was_set:
+    - name: Mariana
+  - action: form_support
+  - slot_was_set:
+    - name: Mariana
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - issue: the power robots is not working
+  - action: form_support
+  - slot_was_set:
+    - issue: the power robots is not working
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_24
+  steps:
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_25
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Mariana
+  - slot_was_set:
+    - name: Mariana
+  - action: form_support
+  - slot_was_set:
+    - name: Mariana
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - action: form_support
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_26
+  steps:
+  - intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Mariana
+  - slot_was_set:
+    - name: Mariana
+  - action: form_complain
+  - slot_was_set:
+    - name: Mariana
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - action: form_complain
+  - slot_was_set:
+    - phoneNumber: '913455625'
+  - slot_was_set:
+    - requested_slot: complaint
+  - intent: tell_complaint
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_32
+  steps:
+  - intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Ze Antonio
+  - slot_was_set:
+    - name: Ze Antonio
+  - action: form_complain
+  - slot_was_set:
+    - name: Ze Antonio
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912345426'
+  - slot_was_set:
+    - phoneNumber: '912345426'
+  - action: form_complain
+  - slot_was_set:
+    - phoneNumber: '912345426'
+  - slot_was_set:
+    - requested_slot: complaint
+  - intent: tell_complaint
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_27
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_28
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: score cards
+  - slot_was_set:
+    - projects: score cards
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_29
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Pedro MARTINS
+  - slot_was_set:
+    - name: Pedro MARTINS
+  - action: form_support
+  - slot_was_set:
+    - name: PedroMARTINS
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - requested_slot: issue 
+  - intent: tell_issue
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - issue: the Smart Documentor is not opening
+  - action: form_support
+  - slot_was_set:
+    - issue: the Smart Documentor is not opening
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_37
+  steps:
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerScorecards
+    entities:
+    - projects: score cards
+  - slot_was_set:
+    - projects: score cards
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: interactive_story_39
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Pedro 
+  - slot_was_set:
+    - name: Pedro
+  - action: form_support
+  - slot_was_set:
+    - name: PedroMARTINS
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - requested_slot: issue 
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - action: form_support
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+- story: interactive_story_166
+  steps:
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Tiles Pro
+  - slot_was_set:
+    - projects: PowerBi Tiles Pro
+  - intent: powerTilesPro
+    entities:
+    - projects: PowerBi Tiles Pro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_89
+  steps:
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_155
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_144
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_133
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_122
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: Poower SmartPivot
+  - slot_was_set:
+    - projects: Poower SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_109
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Pedro
+  - slot_was_set:
+    - name: Pedro
+  - action: form_support
+  - slot_was_set:
+    - name: Pedro
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '923542678'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_complaint
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - action: form_support
+  - slot_was_set:
+    - issue: the power robots is not opening
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: interactive_story_199
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Rui
+  - slot_was_set:
+    - name: Rui
+  - action: form_support
+  - slot_was_set:
+    - name: Rui
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912345678'
+  - slot_was_set:
+    - phoneNumber: '912345678'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '912345678'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+
+- story: interactive_story_189
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+
+- story: interactive_story_190
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+
+- story: interactive_story_191
+  steps:
+  - intent: powerScorecards
+    entities:
+    - projects: PowerBi Scorecards
+  - slot_was_set:
+    - projects: PowerBi Scorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+
+- story: interactive_story_192
+  steps:
+  - intent: powerTilesPro
+    entities:
+    - projects: PowerBi Tiles Pro
+  - slot_was_set:
+    - projects: PowerBi Tiles Pro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+
+- story: interactive_story_193
+  steps:
+  - intent: powerRobots
+    entities:
+    - projects: PowerBi Robots
+  - slot_was_set:
+    - projects: PowerBi Robots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+
+- story: interactive_story_194
+  steps:
+  - intent: powerPortal
+    entities:
+    - projects: PowerBi Portal
+  - slot_was_set:
+    - projects: PowerBi Portal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+- story: interactive_story_157
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1657
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: powerbi smart pivot
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1545
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: interactive_story_1890
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: smartpivot
+  - slot_was_set:
+    - projects: smartpivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1786
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: interactive_story_0
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Mary Cruz
+  - slot_was_set:
+    - name: Mary Cruz
+  - action: form_support
+  - slot_was_set:
+    - name: MaryCruz
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912345678'
+  - slot_was_set:
+    - phoneNumber: '912345678'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '912345678'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - issue: the smart pivot is not iniciating
+  - intent: tell_issue
+    entities:
+    - projects: PowerBi SmartPivot
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: interactive_story_976
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+    - projects: data
+  - slot_was_set:
+    - projects: data
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_12343
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Marta Portugal
+  - slot_was_set:
+    - name: Marta Portugal
+  - action: form_support
+  - slot_was_set:
+    - name: MartaPortugal
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913755672'
+  - slot_was_set:
+    - phoneNumber: '913755672'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '913755672'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the smart documentor is too slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1123
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1789
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: affirm
+  - action: utter_get_support
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1245
+  steps:
+  - intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_stor
+  steps:
+  - intent: powerDataPortal
+    entities:
+    - projects: PowerBi Data Portal
+  - slot_was_set:
+    - projects: PowerBi Data Portal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: John
+  - slot_was_set:
+    - name: John
+  - action: form_support
+  - slot_was_set:
+    - name: John
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '912345654'
+  - slot_was_set:
+    - phoneNumber: '912345654'
+  - action: form_support
+  - slot_was_set:
+    - phoneNumber: '912345654'
+  - slot_was_set:
+    - requested_slot: issue
+  - intent: tell_issue
+    entities:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - projects: SmartDocumentor
+  - slot_was_set:
+    - issue: the smart documentor is slow
+  - action: form_support
+  - slot_was_set:
+    - issue: the smart documentor is slow
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope
+  - action: utter_explain_Devscope
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Marta Portugal
+  - slot_was_set:
+    - name: Marta Portugal
+  - action: form_complain
+  - slot_was_set:
+    - name: MartaPortugal
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913655432'
+  - slot_was_set:
+    - phoneNumber: '913655432'
+  - action: form_complain
+  - slot_was_set:
+    - phoneNumber: '913655432'
+  - slot_was_set:
+    - requested_slot: complaint
+  - intent: tell_complaint
+  - slot_was_set:
+    - complaint: rude customer behaviour
+  - action: form_complain
+  - slot_was_set:
+    - complaint: rude customer behaviour
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - intent: tell_name
+    entities:
+    - name: Marta Portugal
+  - slot_was_set:
+    - name: Marta Portugal
+  - action: form_complain
+  - slot_was_set:
+    - name: MartaPortugal
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - intent: tell_phoneNumber
+    entities:
+    - phoneNumber: '913655432'
+  - slot_was_set:
+    - phoneNumber: '913655432'
+  - action: form_complain
+  - slot_was_set:
+    - phoneNumber: '913655432'
+  - slot_was_set:
+    - requested_slot: complaint
+  - intent: tell_complaint
+  - slot_was_set:
+    - complaint: rude customer behaviour
+  - action: form_complain
+  - slot_was_set:
+    - complaint: rude customer behaviour
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - intent: affirm
+  - action: utter_possibilities
+  - intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye

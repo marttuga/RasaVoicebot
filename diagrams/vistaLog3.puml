@@ -1,0 +1,40 @@
+@startuml vl3
+
+!define PROJECT_NAME My_Project
+!define CUSTOMER_NAME My_Customer
+
+' Diagrama de Pacotes - Nível 3
+
+'LAYOUT_WITH_LEGEND()
+
+!define PROJECT_NAME My_Project
+!define CUSTOMER_NAME My_Customer
+
+' Definir o contexto do sistema
+package "System Boundary" <<Frame>> {
+    actor Cliente as Cliente
+    component "Assistente Tugs" as Assistente_Tugs
+    component "Base de Dados" as Database
+}
+
+' Relações entre os componentes
+Cliente -up-|> Assistente_Tugs : usa
+Assistente_Tugs -up-|> Database : consome
+Assistente_Tugs -up-> speech_recognizer : consome
+Assistente_Tugs -up-> NLU : consome
+
+' Containers internos (pasta, módulos, componentes)
+package "Assistente Tugs" as Assistente_Tugs <<Frame>> {
+    component "speech recognition" as speech_recognizer
+    component "NLU" as NLU
+    component "Actions" as Actions
+    component "database connectivity" as connect
+    component "SMTP Server" as SMTPServer
+}
+
+Assistente_Tugs -down-> speech_recognizer : reconhecimento_fala
+Assistente_Tugs -down-> NLU : processamento_nlp
+Assistente_Tugs -down-> Actions : lógica_negócio
+Assistente_Tugs -down-> connect : acesso_bd
+
+@enduml

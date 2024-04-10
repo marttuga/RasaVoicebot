@@ -1,0 +1,40 @@
+@startuml vl2
+
+!define TugsProject Tugs_Project
+!define RasaComponent Tugs_Rasa
+!define SpeechRecognizerComponent Tugs_SpeechRecognizer
+!define SMTPServerComponent Tugs_SMTPServer
+!define DatabaseComponent Tugs_Database
+
+package "System Boundary" {
+    folder "Cliente" as Cliente
+}
+
+cloud "Internet" {
+    [Speech API]
+    [SMTP Server]
+}
+
+package "Assistente Tugs" {
+    frame "Tugs_Project" as TugsProject {
+        component [Rasa] as RasaComponent
+        component [Speech Recognizer] as SpeechRecognizerComponent
+    }
+}
+
+database "Banco de Dados" {
+    [Database (db_Tugs)]
+}
+
+Cliente -down-> RasaComponent : Usa
+RasaComponent --> SpeechRecognizerComponent : Usa
+RasaComponent --> SMTPServerComponent : Usa
+RasaComponent --> DatabaseComponent : Usa
+
+[Speech API] -down-> SpeechRecognizerComponent : Reconhecimento de Voz
+[SMTP Server] -down-> SMTPServerComponent : Envio de E-mails
+
+@enduml
+
+
+@enduml

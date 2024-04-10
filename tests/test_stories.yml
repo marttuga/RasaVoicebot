@@ -1,0 +1,579 @@
+stories:
+- story: say goodbye
+  steps:
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - user: |
+      Exit
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: restart
+  steps:
+  - user: |
+      restart conversation
+    intent: restart
+  - action: action_restart
+  
+
+- story: Greet the user back when they say hello
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+
+- story: Out of scope
+  steps:
+  - user: |
+      1+5
+    intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: possibilities
+  steps:
+  - user: |
+      what can I ask
+    intent: possibilities
+  - action: utter_possibilities
+
+- story: possibilities
+  steps:
+  - user: |
+      possibilities
+    intent: possibilities
+  - action: utter_possibilities
+
+
+- story: get info devscope
+  steps:
+  - user: |
+      tell me about Devscope
+    intent: explain_Devscope
+  - action: utter_explain_Devscope
+  - action: utter_anything_else
+
+- story: get info devscope
+  steps:
+  - user: |
+      What is the company about
+    intent: explain_Devscope
+  - action: utter_explain_Devscope
+  - action: utter_anything_else
+
+
+- story: get info projects
+  steps:
+  - user: |
+      explain me devscope projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+
+- story: get info projects
+  steps:
+  - user: |
+      tell me about the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+
+- story: get info contacts
+  steps:
+  - user: |
+      tell me devscope contacts
+    intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+
+- story: get info contacts
+  steps:
+  - user: |
+      how can I contact the company
+    intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+
+
+##############################################################
+
+- story: get support -no
+  steps:
+  - action: utter_get_support
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+
+- story: have trouble -yes
+  steps:
+  - action: utter_have_trouble
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_get_support
+
+- story: have trouble -no
+  steps:
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+
+- story: anything else -no
+  steps:
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: anything else -yes
+  steps:
+  - action: utter_anything_else
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_possibilities
+
+
+###############################################
+
+
+- story: powerTilesPro1
+  steps:
+  - user: |
+      Tell me about [PowerBi Tiles Pro]{"entity": "projects", "value": "PowerBi Tiles Pro"}
+    intent: powerTilesPro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+- story: powerRobots1
+  steps:
+  - user: |
+      Give me more information about [PowerBi Robots]{"entity": "projects", "value": "PowerBi Robots"}
+    intent: powerRobots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+
+- story: powerScorecards1 
+  steps:
+  - user: |
+      I want to see [PowerBi Scorecards]{"entity": "projects", "value": "PowerBi Scorecards"}
+    intent: powerScorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+
+- story: powerPortal1 
+  steps:
+  - user: |
+      I want [PowerBi Portal]{"entity": "projects", "value": "PowerBi Portal"}
+    intent: powerPortal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+
+- story: powerDataPortal1
+  steps:
+  - user: |
+      I want to see [PowerBi Data Portal]{"entity": "projects", "value": "PowerBi Data Portal"}
+    intent: powerDataPortal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+
+- story: powerSmartPivot1
+  steps:
+  - user: |
+      Show me [Power SmartPivot]{"entity": "projects", "value": "PowerBi SmartPivot"}
+    intent: powerSmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+
+- story: smartDocumentor1
+  steps:
+  - user: |
+      I want to see [Smart Documentor]{"entity": "projects", "value": "SmartDocumentor"}
+    intent: smartDocumentor
+  - action: utter_smartDocumentor
+  - action: utter_have_trouble
+
+
+############################################################################
+
+
+- story: powerTilesPro 
+  steps:
+  - user: |
+      What is the [power tiles]{"entity": "projects", "value": "PowerBi Tiles Pro"}
+    intent: powerTilesPro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+
+- story: powerRobots 
+  steps:
+  - user: |
+      tell me about [powerbi robots]{"entity": "projects", "value": "PowerBi Robots"}
+    intent: powerRobots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+
+- story: powerScorecards 
+  steps:
+  - user: |
+      what is the [power score cards]{"entity": "projects", "value": "PowerBi Scorecards"}
+    intent: powerScorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+
+- story: powerPortal 
+  steps:
+  - user: |
+      tell me about [Powerbi portal]{"entity": "projects", "value": "PowerBi Portal"}
+    intent: powerPortal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+
+- story: powerDataPortal 
+  steps:
+  - user: |
+      what does [power data]{"entity": "projects", "value": "PowerBi Data Portal"} do 
+    intent: powerDataPortal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+
+- story: powerSmartPivot 
+  steps:
+  - user: |
+      what is [smart pivot]{"entity": "projects", "value": "PowerBi SmartPivot"}
+    intent: powerSmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+
+
+- story: smartDocumentor 
+  steps:
+  - user: |
+      what is [smart Documentor]{"entity": "projects", "value": "SmartDocumentor"}
+    intent: smartDocumentor
+  - action: utter_smartDocumentor
+  - action: utter_have_trouble
+
+#########################################################
+
+
+- story: story1
+  steps:
+  - user: |
+      hi
+    intent: greet
+  - action: utter_greet
+  - user: |
+      what can I ask
+    intent: possibilities
+  - action: utter_possibilities
+  - user: |
+      tell me devscope contacts
+    intent: explain_Devscope_contacts
+  - action: utter_explain_Devscope_contacts
+  - action: utter_anything_else
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_possibilities
+  - user: |
+      tell me about the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      Give me more information about [PowerBi Robots]{"entity": "projects", "value": "PowerBi Robots"}
+    intent: powerRobots
+  - action: utter_powerRobots
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+  
+
+
+- story: story2
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the [power score cards]{"entity": "projects", "value": "PowerBi Scorecards"}
+    intent: powerScorecards
+  - action: utter_powerScorecards
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: story3
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the project [power tiles]{"entity": "projects", "value": "PowerBi Tiles Pro"}
+    intent: powerTilesPro
+  - action: utter_powerTilesPro
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: story4
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the [smart documentor]{"entity": "projects", "value": "SmartDocumentor"}
+    intent: smartDocumentor
+  - action: utter_smartDocumentor
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: story5
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the [smart pivot]{"entity": "projects", "value": "PowerBi SmartPivot"} project
+    intent: powerSmartPivot
+  - action: utter_powerSmartPivot
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: story6
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the [power data portal]{"entity": "projects", "value": "PowerBi Data Portal"}
+    intent: powerDataPortal
+  - action: utter_powerDataPortal
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: power portal story
+  steps:
+  - user: |
+      what are the projects
+    intent: explain_Devscope_projects
+  - action: utter_possibilities_projects
+  - user: |
+      what is the [power portal]{"entity": "projects", "value": "PowerBi Portal"}
+    intent: powerPortal
+  - action: utter_powerPortal
+  - action: utter_have_trouble
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_anything_else
+  - user: |
+      not really
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+
+- story: Support Case Test Smart Documentor
+  steps:
+  - user: |
+      support case
+    intent: open_support
+  - action: utter_open_support
+  - action: form_support
+  - active_loop: form_support
+  - slot_was_set:
+    - requested_slot: name
+  - user: |
+      [Rui](name)
+    intent: tell_name
+  - action: form_support
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - user: |
+      [912345678](phoneNumber)
+    intent: tell_phoneNumber
+  - action: form_support
+  - slot_was_set:
+    - requested_slot: issue
+  - user: |
+      the [SmartDocumentor](projects) is too slow
+    intent: tell_issue
+  - action: form_support
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_support_cases
+  - action: utter_anything_else
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+
+
+- story: test_interactive_story_1977
+  steps:
+  - user: |
+      i want to make a complaint
+    intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - user: |
+      [Rui](name)
+    intent: tell_name
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - user: |
+      [912345608](phoneNumber)
+    intent: tell_phoneNumber
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: complaint
+  - user: |
+      rude customer behaviour
+    intent: tell_complaint
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye
+
+
+- story: test_interactive_stor_complain
+  steps:
+  - user: |
+      I'm not having the best expirience with you
+    intent: complain
+  - action: form_complain
+  - active_loop: form_complain
+  - slot_was_set:
+    - requested_slot: name
+  - user: |
+      [Inês Correia](name)
+    intent: tell_name
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: phoneNumber
+  - user: |
+      [912349608](phoneNumber)
+    intent: tell_phoneNumber
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: complaint
+  - user: |
+      Incorrect billing or invoicing
+    intent: tell_complaint
+  - action: form_complain
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_save_complaints
+  - action: utter_anything_else
+  - user: |
+      no
+    intent: deny
+  - action: utter_thumbsup
+  - action: utter_goodbye

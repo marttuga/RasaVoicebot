@@ -1,0 +1,58 @@
+[
+  {
+    "text": "How can PowerBi Data Portal help with data management?",
+    "entities": [
+      {
+        "start": 8,
+        "end": 27,
+        "value": "PowerBi Data Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "projects",
+        "start": 8,
+        "end": 27,
+        "confidence_entity": 0.8461096882820129,
+        "value": "PowerBi Data Portal",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "projects",
+        "start": 38,
+        "end": 42,
+        "confidence_entity": 0.6355177760124207,
+        "value": "data",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "the smart pivot is not iniciating",
+    "entities": [
+      {
+        "start": 4,
+        "end": 15,
+        "value": "smart pivot",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "projects",
+        "start": 4,
+        "end": 9,
+        "confidence_entity": 0.5796800255775452,
+        "value": "smart",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

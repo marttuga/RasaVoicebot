@@ -1,0 +1,125 @@
+@startuml seqDiagScore
+
+actor Cliente
+participant Bot as "assistente Tugs"
+participant speech_recognizer as "voice recognition"
+participant NLU as "NLU"
+participant Actions as "Actions"
+
+
+activate Cliente
+
+Cliente -> Bot: O cliente inicia a conversa e indica que quer saber sobre PowerBi Scorecards
+activate Bot
+Bot -> speech_recognizer: A fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: Texto reconhecido da fala do cliente
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent powerScorecards reconhecido com entidade projects=PowerBi Scorecards
+NLU -> Actions: response= utter_powerScorecards
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: utter_powerScorecards
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: utter_powerScorecards
+deactivate speech_recognizer
+
+Bot --> Cliente: O assistente dá as informações sobre PowerBi Scorecards e pergunta se o cliente está com problemas
+deactivate Bot
+
+Cliente -> Bot: O cliente nega que está com problemas
+activate Bot
+Bot -> speech_recognizer: A fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: Texto reconhecido da fala do cliente
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent deny é reconhecido 
+NLU -> Actions: response= utter_thumbsup e utter_anything_else
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: utter_thumbsup e utter_anything_else
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: utter_thumbsup e utter_anything_else
+deactivate speech_recognizer
+
+Bot --> Cliente: O assistente mostra contentação e pergunta se o cliente precisa de mais alguma coisa
+deactivate Bot
+
+Cliente -> Bot: O cliente confirma que precisa
+activate Bot
+Bot -> speech_recognizer: A fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: Texto reconhecido da fala do cliente
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent affirm é reconhecido 
+NLU -> Actions: response= utter_possibilities
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: utter_possibilities 
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: utter_possibilities
+deactivate speech_recognizer
+
+Bot --> Cliente: O assistente diz todas as possibilidades para perguntar
+deactivate Bot
+
+Cliente -> Bot: O cliente pergunta sobre como contactar a Devscope
+activate Bot
+Bot -> speech_recognizer: A fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: Texto reconhecido da fala do cliente
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent explain_Devscope_contacts é reconhecido 
+NLU -> Actions: response= utter_explain_Devscope_contacts
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: utter_explain_Devscope_contacts 
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: utter_explain_Devscope_contacts
+deactivate speech_recognizer
+
+Bot --> Cliente: dá os contactos e pergunta se precisa de mais alguma coisa
+deactivate Bot
+
+Cliente -> Bot: O cliente diz que não
+activate Bot
+Bot -> speech_recognizer: A fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: Texto reconhecido da fala do cliente
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent deny é reconhecido 
+NLU -> Actions: response= utter_thumbsup e utter_goodbye
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: utter_thumbsup e utter_goodbye
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: utter_thumbsup e utter_goodbye
+deactivate speech_recognizer
+
+
+Bot --> Cliente: o assistente mostra contentação e despede-se 
+deactivate Bot
+
+deactivate Cliente
+
+@enduml

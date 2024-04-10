@@ -1,0 +1,127 @@
+@startuml seqDiag
+
+actor Cliente
+participant Bot as "assistente Tugs"
+participant speech_recognizer as "voice recognition"
+participant NLU as "NLU"
+participant Actions as "Actions"
+participant connect as "database connectivity"
+database Database as "db_Tugs"
+
+activate Cliente
+
+Cliente -> Bot: o cliente inicia a chamada e diz que quer abrir um caso de suporte
+activate Bot
+Bot -> speech_recognizer: fala é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent open_support é reconhecido 
+NLU -> Actions: response= abrir o formulário form_support
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: formulário form_support
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_support e perguta o nome
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Começa o formulário e pergunta pelo nome
+deactivate Bot
+
+Cliente -> Bot: O cliente fornece o seu nome
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+
+NLU -> Actions: entidade name = nome do cliente
+deactivate NLU
+activate Actions
+
+Actions -> Actions: validate_name(name)
+Actions --> speech_recognizer: continua o form_support
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_support e perguta o número de telefone
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Pede o número de telefone
+deactivate Bot
+
+Cliente -> Bot: O cliente fornece o número de telefone
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+NLU -> Actions: entidade phoneNumber = número de telefone
+deactivate NLU
+
+activate Actions
+Actions -> Actions: validate_phoneNumber(phoneNumber)
+Actions --> speech_recognizer: continua o form_support
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_support e perguta o problema
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Pergunta qual é o problema
+deactivate Bot
+
+Cliente -> Bot: O cliente descreve o problema
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+NLU -> Actions: entidade issue = descrição do problema
+deactivate NLU
+activate Actions
+
+Actions -> Actions: validate_issue(issue)
+Actions --> Bot: acaba o form_support
+deactivate Actions
+
+
+Bot -> Actions: action_save_support_cases(name, phoneNumber, issue)
+deactivate Bot
+
+activate Actions
+
+
+Actions -> connect: DataUpdateSupportCases(name, phoneNumber, issue)
+activate connect
+
+connect -> Database: conectar e INSERT na db_Tugs
+activate Database
+Database --> connect: db_Tugs atualizada
+deactivate Database
+connect --> Actions: caso guardado com sucesso
+
+deactivate connect
+
+Actions --> Cliente: Informa que o caso de suporte foi gerado e guardado
+deactivate Actions
+
+deactivate Cliente
+
+@enduml

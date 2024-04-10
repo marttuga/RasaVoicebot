@@ -1,0 +1,262 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- complain
+- deny
+- explain_Devscope
+- explain_Devscope_contacts
+- explain_Devscope_projects
+- goodbye
+- greet
+- nlu_fallback
+- open_support
+- out_of_scope
+- possibilities
+- powerDataPortal
+- powerPortal
+- powerRobots
+- powerScorecards
+- powerSmartPivot
+- powerTilesPro
+- restart
+- smartDocumentor
+- tell_complaint
+- tell_issue
+- tell_name
+- tell_phoneNumber
+- thank
+entities:
+- projects
+- phoneNumber
+- name
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+      intent: tell_name
+      conditions:
+      - active_loop: form_support
+        requested_slot: name
+    - type: from_entity
+      entity: name
+      intent: tell_name
+      conditions:
+      - active_loop: form_complain
+        requested_slot: name
+  projects:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: projects
+  phoneNumber:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: phoneNumber
+      intent: tell_phoneNumber
+      conditions:
+      - active_loop: form_support
+        requested_slot: phoneNumber
+    - type: from_entity
+      entity: phoneNumber
+      intent: tell_phoneNumber
+      conditions:
+      - active_loop: form_complain
+        requested_slot: phoneNumber
+  issue:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      intent: tell_issue
+      conditions:
+      - active_loop: form_support
+        requested_slot: issue
+  complaint:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      intent: tell_complaint
+      conditions:
+      - active_loop: form_complain
+        requested_slot: complaint
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: Hey there, my name is Tugs.
+  - text: Hi, I'm Tugs!
+  - text: Hi! My name's Tugs.
+  utter_anything_else:
+  - text: Is there anything else I can assist you with?
+  - text: Do you need any further assistance?
+  - text: Can I help you with anything else?
+  - text: Is there anything else you'd like to know?
+  - text: Are there any other questions you have?
+  - text: Do you need more information on a particular topic?
+  - text: Would you like me to clarify anything else?
+  utter_goodbye:
+  - text: Goodbye!
+  - text: Bye!
+  - text: Ciao!
+  - text: Bye, was nice talking to you!
+  - text: Bye bye!
+  - text: Adios!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  - text: I'm a bot named Tugs
+  - text: I am a bot 🤖
+  utter_explain_Devscope:
+  - text: |
+      DevScope:
+      - Is an information technology (IT) company based in Lisbon, Portugal, DevScope develops its own products, such as data governance solutions and automation tools.
+      - The address is R. de Passos Manuel 223 in Porto and if you're looking for more information please check the website, https://devscope.net/
+  utter_explain_Devscope_contacts:
+  - text: |
+      Contacts:
+      - E-mail information, info@devscope.net
+      - E-mail support, support@devscope.net
+      - Phone, +351 213 806 590
+      - Website, https://www.devscope.net/contactos
+      - Social, LinkedIn, Twitter, Facebook and Instagram
+  utter_thumbsup:
+  - text: 👍
+  - text: Okay!
+  - text: Got it.
+  - text: Great! 👍
+  - text: That's great! 🙌
+  - text: Awesome! 🎉
+  - text: I'm happy to help.
+  - text: Awesome, thanks! 👍
+  - text: Sweet, thank you! 😄
+  - text: Thanks! 👌
+  - text: Cool, thank you!
+  utter_possibilities:
+  - text: |
+      You can ask me about:
+      - DevScope itself
+      - DevScope's projects
+      - Contact information
+      - Make a complaint
+      - Open a support ticket
+  utter_possibilities_projects:
+  - text: |
+      What project are you looking for?
+      - powerbi Tiles Pro
+      - powerbi Robots
+      - powebir Scorecards
+      - powerbi Portal
+      - powerbi Data Portal
+      - powerbi SmartPivot
+      - smart Documentor
+  utter_ask_issue:
+  - text: Can you give us the details, where and what issue are you having?
+  utter_ask_name:
+  - text: Can you provide me with the best name to address you, please?
+  - text: What name should I address you by?
+  - text: May I know your name, please?
+  - text: Can I get your name, please?
+  utter_ask_phoneNumber:
+  - text: Can you please provide me with your phone number ?
+  - text: Could you share your phone number with me?
+  - text: Would you mind giving me your phone number so we can proceed ?
+  - text: May I have your phone number?
+  - text: What is the best phone number to reach you at ?
+  - text: Can you provide me with a phone number where you can be reached ?
+  - text: Can you please provide your phone number so we can proceed ?
+  utter_ask_complaint:
+  - text: Can you tell us the reason of this complaint?
+  utter_have_trouble:
+  - text: Are you experiencing any type of trouble with this product?
+  - text: Have you encountered any issues with this product?
+  - text: Are you facing any difficulties or challenges with this product?
+  - text: Is there anything causing you trouble or problems with this product?
+  - text: Have you run into any obstacles or glitches while using this product?
+  utter_powerTilesPro:
+  - text: PowerBI Tiles Pro is an Office add-in that allows you to embed Power BI reports in PowerPoint presentations, Word documents and Outlook emails. I suggest you try the site https://www.powerbitiles.com/Pro/ to gain more information
+  utter_powerRobots:
+  - text: PowerBI Robots allows you to schedule Power BI reports and dashboards, and sends them anywhere, to an unlimited number of recipients. Simply tell PowerBI Robots when and where you want your Power BI data, and it will always deliver it on time. I suggest you try the site https://powerbitiles.com/PowerBIRobots/ to gain more information
+  utter_powerScorecards:
+  - text: Tool to add the power of Power BI to your organization’s KPIs and automate your employee scorecard system with PowerBI ScoreCards. Align vision with action, analyze data with little to no effort, identify opportunities and timely act on them. I suggest you try the site https://www.powerbitiles.com/PBIScorecards/ to gain more information
+  utter_powerPortal:
+  - text: Made to share Power BI reports with users outside your organization and reduce your Azure data consumption and costs. I suggest you try the site https://www.powerbitiles.com/PBIPortal/ to gain more information
+  utter_powerDataPortal:
+  - text: PowerBI Data Portal let’s users share Power BI dataflows from their workspace with colleagues, clients, partners, or suppliers, opening the doors to unprecedented data collaboration. I suggest you try the site https://www.powerbitiles.com/PBIDataPortal/ to gain more information
+  utter_powerSmartPivot:
+  - text: PowerBI SmartPivot is a powerful toolkit for Microsoft Excel that enables you to do more with PivotTables with much less effort. I suggest you try the site https://www.powerbitiles.com/PBISmartPivot/ to gain more information
+  utter_smartDocumentor:
+  - text: SmartDocumentor Cloud is an all-in-one intelligent document processing tool that helps companies drastically reduce the time they spend processing business documents. I suggest you try the site https://www.smartdocumentor.net/ to gain more information
+  - text: SmartDocumentor Cloud is a document processing platform that takes away the trouble of dealing with business invoices, bills, and expenses. Thanks to its Robotic Process Automation (RPA) and AI engines, SmartDocumentor Cloud pre-validates, processes, and integrates into the company’s external system, greatly reducing operational costs and cutting time spent on these dull tasks by up to 70%. I suggest you try the site https://www.smartdocumentor.net/ to gain more information
+  utter_restart:
+  - text: Oh no! Let's restart the conversation and try again
+  utter_out_of_scope:
+  - text: Sorry, didn't understand.
+  - text: I'm sorry, I don't understand.
+  - text: I'm sorry, I didn't quite catch that.
+  - text: I don't think I can help you with that.
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: Seems like I didn't get it right. Let's give it another shot.
+  - text: My bad! Let me try to understand you, ask again.
+  utter_open_support:
+  - text: Thank you for reaching out to us. We have noted your issue and will open a support ticket right away. We appreciate your patience.
+  - text: We've received your request for support and will create a ticket for you.
+  - text: Your support ticket has been initiated and our team will begin investigating your issue.
+  - text: We're opening a support ticket on your behalf to address your concerns.
+  - text: We understand your need for assistance and have started a support ticket.
+  utter_get_support:
+  - text: If you'd like to be contacted and open a support case, please say open support
+actions:
+- utter_have_trouble
+- utter_goodbye
+- utter_powerSmartPivot
+- utter_thumbsup
+- utter_anything_else
+- utter_explain_Devscope_contacts
+- action_save_complaints
+- utter_possibilities
+- utter_open_support
+- utter_explain_Devscope
+- action_save_support_cases
+- utter_powerDataPortal
+- utter_greet
+- utter_possibilities_projects
+- utter_get_support
+- utter_powerTilesPro
+- utter_powerScorecards
+- utter_smartDocumentor
+- utter_powerPortal
+- utter_powerRobots
+- action_restart
+- validate_form_complain
+- validate_form_support
+- action_view_support_cases
+- action_view_complaints
+- action_default_fallback
+- utter_ask_issue
+- utter_ask_name
+- utter_ask_phoneNumber
+- utter_ask_complaint
+- utter_restart
+- utter_out_of_scope
+- utter_please_rephrase
+forms:
+  form_support:
+    required_slots:
+    - name
+    - phoneNumber
+    - issue
+  form_complain:
+    required_slots:
+    - name
+    - phoneNumber
+    - complaint
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,338 @@
+[
+  {
+    "text": "Tell me about PowerBi Tiles Pro",
+    "entities": [
+      {
+        "start": 14,
+        "end": 31,
+        "value": "PowerBi Tiles Pro",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Give me more information about PowerBi Robots",
+    "entities": [
+      {
+        "start": 31,
+        "end": 45,
+        "value": "PowerBi Robots",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to see PowerBi Scorecards",
+    "entities": [
+      {
+        "start": 14,
+        "end": 32,
+        "value": "PowerBi Scorecards",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want PowerBi Portal",
+    "entities": [
+      {
+        "start": 7,
+        "end": 21,
+        "value": "PowerBi Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to see PowerBi Data Portal",
+    "entities": [
+      {
+        "start": 14,
+        "end": 33,
+        "value": "PowerBi Data Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Show me Power SmartPivot",
+    "entities": [
+      {
+        "start": 8,
+        "end": 24,
+        "value": "PowerBi SmartPivot",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to see Smart Documentor",
+    "entities": [
+      {
+        "start": 14,
+        "end": 30,
+        "value": "SmartDocumentor",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "What is the power tiles",
+    "entities": [
+      {
+        "start": 12,
+        "end": 23,
+        "value": "PowerBi Tiles Pro",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "tell me about powerbi robots",
+    "entities": [
+      {
+        "start": 14,
+        "end": 28,
+        "value": "PowerBi Robots",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the power score cards",
+    "entities": [
+      {
+        "start": 12,
+        "end": 29,
+        "value": "PowerBi Scorecards",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "tell me about Powerbi portal",
+    "entities": [
+      {
+        "start": 14,
+        "end": 28,
+        "value": "PowerBi Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what does power data do",
+    "entities": [
+      {
+        "start": 10,
+        "end": 20,
+        "value": "PowerBi Data Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is smart pivot",
+    "entities": [
+      {
+        "start": 8,
+        "end": 19,
+        "value": "PowerBi SmartPivot",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is smart Documentor",
+    "entities": [
+      {
+        "start": 8,
+        "end": 24,
+        "value": "SmartDocumentor",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Give me more information about PowerBi Robots",
+    "entities": [
+      {
+        "start": 31,
+        "end": 45,
+        "value": "PowerBi Robots",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the power score cards",
+    "entities": [
+      {
+        "start": 12,
+        "end": 29,
+        "value": "PowerBi Scorecards",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the project power tiles",
+    "entities": [
+      {
+        "start": 20,
+        "end": 31,
+        "value": "PowerBi Tiles Pro",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the smart documentor",
+    "entities": [
+      {
+        "start": 12,
+        "end": 28,
+        "value": "SmartDocumentor",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the smart pivot project",
+    "entities": [
+      {
+        "start": 12,
+        "end": 23,
+        "value": "PowerBi SmartPivot",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the power data portal",
+    "entities": [
+      {
+        "start": 12,
+        "end": 29,
+        "value": "PowerBi Data Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "what is the power portal",
+    "entities": [
+      {
+        "start": 12,
+        "end": 24,
+        "value": "PowerBi Portal",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Rui",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "Rui",
+        "entity": "name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "912345678",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "912345678",
+        "entity": "phoneNumber"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the SmartDocumentor is too slow",
+    "entities": [
+      {
+        "start": 4,
+        "end": 19,
+        "value": "SmartDocumentor",
+        "entity": "projects"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Rui",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "Rui",
+        "entity": "name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "912345608",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "912345608",
+        "entity": "phoneNumber"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Inês Correia",
+    "entities": [
+      {
+        "start": 0,
+        "end": 12,
+        "value": "Inês Correia",
+        "entity": "name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "912349608",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "912349608",
+        "entity": "phoneNumber"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

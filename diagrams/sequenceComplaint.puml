@@ -1,0 +1,136 @@
+@startuml seqDiagComplaint
+
+actor Cliente
+participant Bot as "assistente Tugs"
+participant speech_recognizer as "voice recognition"
+participant NLU as "NLU"
+participant Actions as "Actions"
+participant connect as "database connectivity"
+database Database as "db_Tugs"
+participant SMTPServer as "SMTP Server"
+
+activate Cliente
+
+Cliente -> Bot: o cliente inicia a chamada e indica que quer fazer uma reclamação
+activate Bot
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+NLU -> NLU: Intent complaint é reconhecido 
+NLU -> Actions: response= abrir o formulário form_complain
+deactivate NLU
+activate Actions
+deactivate NLU
+Actions --> speech_recognizer: formulário form_complain
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_complain e perguta o nome
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Começa o formulário e pergunta pelo nome
+deactivate Bot
+
+Cliente -> Bot: O cliente fornece o seu nome
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+
+NLU -> Actions: entidade name = nome do cliente
+deactivate NLU
+activate Actions
+
+Actions -> Actions: validate_name(name)
+Actions --> speech_recognizer: continua o form_complain
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_complain e perguta o número de telefone
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Pede o número de telefone
+deactivate Bot
+
+Cliente -> Bot: O cliente fornece o número de telefone
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+NLU -> Actions: entidade phoneNumber = número de telefone
+deactivate NLU
+
+activate Actions
+Actions -> Actions: validate_phoneNumber(phoneNumber)
+Actions --> speech_recognizer: continua o form_complain
+deactivate Actions
+
+activate speech_recognizer
+speech_recognizer --> Bot: formulário form_complain e perguta a reclamação
+deactivate speech_recognizer
+
+
+Bot --> Cliente: Pergunta qual é o motivo da reclamação
+deactivate Bot
+
+Cliente -> Bot: O cliente descreve a reclamação
+activate Bot
+
+Bot -> speech_recognizer: a fala do cliente é reconhecida
+activate speech_recognizer
+speech_recognizer -> NLU: o texto reconhecido da fala
+deactivate speech_recognizer
+activate NLU
+
+NLU -> Actions: entidade complaint = descrição da reclamação
+deactivate NLU
+activate Actions
+
+Actions -> Actions: validate_complaint(complaint)
+Actions --> Bot: acaba o form_complain
+deactivate Actions
+
+Bot -> Actions: action_save_complaints(name, phoneNumber, complaint)
+deactivate Bot
+
+activate Actions
+
+Actions -> connect: DataUpdateComplaints(name, phoneNumber, complaint)
+activate connect
+
+connect -> Database: conectar e INSERT na db_Tugs
+activate Database
+Database --> connect: db_Tugs atualizada
+deactivate Database
+connect --> Actions: queixa guardada com sucesso
+deactivate connect
+
+Actions -> SMTPServer: enviar_email(toaddr, subject, message)
+activate SMTPServer
+
+SMTPServer -> SMTPServer: Estabelecer conexão com o servidor SMTP
+SMTPServer --> Actions: Conexão estabelecida
+Actions -> Actions: criar_mensagem_email(toaddr, subject, message)
+Actions -> SMTPServer: Mensagem preparada para envio
+SMTPServer -> SMTPServer: Enviar email
+SMTPServer --> Actions: Email enviado
+deactivate SMTPServer
+
+Actions --> Cliente: Informa que a queixa foi submetida e será analisada em breve
+deactivate Actions
+
+deactivate Cliente
+
+@enduml

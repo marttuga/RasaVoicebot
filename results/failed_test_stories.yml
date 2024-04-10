@@ -1,0 +1,24 @@
+version: "3.1"
+stories:
+- story: powerSmartPivot1 (.\tests\test_stories.yml)
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot  # predicted: action_default_fallback
+  - action: utter_have_trouble
+- story: say goodbye (.\tests\test_stories.yml)
+  steps:
+  - intent: goodbye  # predicted: nlu_fallback: Exit
+  - action: utter_goodbye
+- story: powerSmartPivot (.\tests\test_stories.yml)
+  steps:
+  - intent: powerSmartPivot
+    entities:
+    - projects: PowerBi SmartPivot
+  - slot_was_set:
+    - projects: PowerBi SmartPivot
+  - action: utter_powerSmartPivot  # predicted: action_default_fallback
+  - action: utter_have_trouble

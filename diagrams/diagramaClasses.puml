@@ -1,0 +1,53 @@
+@startuml classDiagram
+
+class VoiceBot {
+    +run()
+}
+
+class AssistenteTugs {
+    -speech_recognizer: SpeechRecognizer
+    -nlu: NLU
+    -actions: Actions
+    -connect: Connect
+    -database: Database
+    -smtp_server: SMTPServer
+
+    +start_session()
+    +end_session()
+    +handle_message(message: String): String
+}
+
+class SpeechRecognizer {
+    +recognize_speech(): String
+}
+
+class NLU {
+    +extract_intent(message: String): String
+}
+
+class Actions {
+    +perform_action(intent: String): String
+}
+
+class Connect {
+    +connect_to_database(): void
+    +connect_to_smtp_server(): void
+}
+
+class Database {
+    +save_data(data: String): void
+}
+
+class SMTPServer {
+    +send_email(toaddr: String, subject: String, message: String): void
+}
+
+VoiceBot --> AssistenteTugs
+AssistenteTugs --> SpeechRecognizer
+AssistenteTugs --> NLU
+AssistenteTugs --> Actions
+AssistenteTugs --> Connect
+AssistenteTugs --> Database
+AssistenteTugs --> SMTPServer
+
+@enduml

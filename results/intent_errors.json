@@ -1,0 +1,26 @@
+[
+  {
+    "text": "Exit",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "nlu_fallback",
+      "confidence": 0.5193327069282532
+    }
+  },
+  {
+    "text": "exit",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "nlu_fallback",
+      "confidence": 0.5193327069282532
+    }
+  },
+  {
+    "text": "exit",
+    "intent": "deny",
+    "intent_prediction": {
+      "name": "nlu_fallback",
+      "confidence": 0.5193327069282532
+    }
+  }
+]
